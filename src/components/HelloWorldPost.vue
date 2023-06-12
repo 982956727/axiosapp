@@ -2,7 +2,7 @@
   <!-- template只能有一个根元素 -->
   <div class="hello">
     <h3>我是axiosApp,用来发送请求，拦截响应</h3>
-    <button @click="getData()">GET方式发送请求</button>
+    <button @click="postData">POST方式发送请求</button>
     <ul>
         <li v-for="item in items">
             {{ item.title }}
@@ -18,6 +18,9 @@ Vue.prototype.$http = axios;
 import axios from 'axios'
 
 import Vue from 'vue'
+
+// 引入qs加载
+import qs from 'qs'
 
 export default {
   name: 'HelloWorld',
@@ -49,6 +52,23 @@ export default {
            console.log(res)
         })
         .catch(function(err) {
+          console.log(err)
+        })
+    },
+    postData() {
+      var self = this
+      // 通过POST方式使用api
+      // npm install qs安装插件,qs插件—­qs.stringify
+      // 在axios中，post请求接收的参数必须是form­data,
+      this.$http.post('https://cnodejs.org/api/v1/topics',qs.stringify({
+            page:1,
+            limit:10
+      }))
+        .then(res => {
+          this.items = res.data.data
+          console.log(res)
+        })
+        .catch(function (err) {
           console.log(err)
         })
     }

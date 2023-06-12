@@ -1,9 +1,9 @@
 //引入router文件
 import router from 'vue-router'
 import Vue from "vue"
-//引入组件
+//引入HelloWorld组件
 import HelloWorld from '../components/HelloWorld'
-import HelloEarth from '../components/HelloEarth'
+import HelloWorldPost from '../components/HelloWorldPost'
 
 //使用router
 Vue.use(router)
@@ -17,13 +17,13 @@ Vue.use(router)
 export default new router({
    routes:[{
       name:'helloworld',
-      path:'/helloworld/:worldmsg',//指定要跳转的路径
+      path:'/',//指定要跳转的路径
       component:HelloWorld//指定要跳转的组件
    },
    {
-      name:'helloearth',
-      path:'/helloearth/:earthmsg',
-      component:HelloEarth
-   }
+      name:'helloworld',
+      path:'/post',//指定要跳转的路径
+      component:HelloWorldPost//指定要跳转的组件
+   },
   ]
 })

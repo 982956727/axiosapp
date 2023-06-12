@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <img src="./assets/logo.png">
-    <!-- 确定视图加载的位置 -->
-    <list></list>
+    <!-- <img src="./assets/logo.png"> -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-// 导入list组件
-import list from './components/list'
 //导入HelloWorld组件
 import HelloWorld from './components/HelloWorld'
+
+import HelloWorldPost from './components/HelloWorldPost'
 
 export default {
   name: 'App',
   components: {
-    list
+    HelloWorld,
+    HelloWorldPost
   }
 }
 </script>
